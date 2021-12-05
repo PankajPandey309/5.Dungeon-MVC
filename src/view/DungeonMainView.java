@@ -17,6 +17,8 @@ public class DungeonMainView extends JFrame implements IView {
 
   private final JLabel display;
   private final JFrame frame;
+  private final JPanel jPanel1;
+  private final JPanel jPanel2;
   private final DungeonPanel panel;
   private final JMenuBar menuBar;
   private final JMenu gameSettings;
@@ -25,12 +27,21 @@ public class DungeonMainView extends JFrame implements IView {
   private final JMenuItem quitGame;
   private final JMenuItem restartGame;
   private final JMenuItem newGame;
+  private final JButton arrowNorth;
+  private final JButton arrowSouth;
+  private final JButton arrowWest;
+  private final JButton arrowEast;
 
   public DungeonMainView(String caption, ReadOnlyDungeonModel model)  {
     super(caption);
     frame = new JFrame();
+    frame.setLayout(new BorderLayout());
     display = new JLabel();
     menuBar = new JMenuBar();
+    jPanel1 = new JPanel(new GridLayout(3,0));
+    jPanel2 = new JPanel(new GridLayout(2,0));
+    frame.add(jPanel1,BorderLayout.NORTH);
+    frame.add(jPanel2,BorderLayout.SOUTH);
 
     gameSettings = new JMenu("Settings");
     lobby = new JMenu("Lobby");
@@ -57,13 +68,17 @@ public class DungeonMainView extends JFrame implements IView {
 
     panel = new DungeonPanel(model);
     Dimension d = new Dimension(1000, 1000);
-    panel.setMinimumSize(d);
-    panel.setMaximumSize(d);
     panel.setPreferredSize(d);
-    JScrollPane jsp = new JScrollPane(panel);
-    frame.getContentPane().add(jsp);
+    jPanel1.setPreferredSize(d);
+    JScrollPane jsp = new JScrollPane(panel,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+    jPanel1.add(jsp);
 
 
+
+
+//    arrowNorth = new JButton("Arrow North");
+//    arrowNorth.setActionCommand("Arrow North");
+//    frame.add(arrowNorth);
 
     frame.setVisible(true);
 
