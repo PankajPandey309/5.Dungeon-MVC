@@ -93,17 +93,26 @@ public class DungeonPreviewView extends JFrame implements IPreview {
   @Override
   public List<String> getDungeonParameters() {
     List<String> parameters = new ArrayList<>();
-    parameters.add(rows.getText());
-    parameters.add(cols.getText());
-    if(wrapping.isSelected()){
-      parameters.add("true");
-    } else if (nonWrapping.isSelected()) {
-      parameters.add("false");
-    }
-    parameters.add(interconnectivity.getText());
-    parameters.add(treasurePercentage.getText());
-    parameters.add(monster.getText());
-    parameters.add(name.getText());
+//    parameters.add(rows.getText());
+//    parameters.add(cols.getText());
+//    if(wrapping.isSelected()){
+//      parameters.add("true");
+//    } else if (nonWrapping.isSelected()) {
+//      parameters.add("false");
+//    }
+//    parameters.add(interconnectivity.getText());
+//    parameters.add(treasurePercentage.getText());
+//    parameters.add(monster.getText());
+//    parameters.add(name.getText());
+    parameters.add("5");
+    parameters.add("5");
+    parameters.add("true");
+    parameters.add("3");
+    parameters.add("4");
+    parameters.add("2");
+    parameters.add("A");
+
+
     this.dispose();
     return parameters;
 
